@@ -15,13 +15,13 @@ class LDP(nn.Module):
     in_channels (int): Number of channels in the input image
     out_channels (int): Number of channels produced by the convolutions
     depth (int): Number of times the sequence of operations is repeated
-    
-    
+
+
     Example usage:
     ldp = LDP(in_channels=128, out_channels=128, depth=3)
     input_tensor = torch.randn(1, 128, 64, 64)  # Example input
     output = ldp(input_tensor)
-    
+
     """
 
     def __init__(
