@@ -1,6 +1,6 @@
 import pytest
 import torch
-from mobilevlm import LDP  # replace with your actual model class
+from mobilevlm import LDP 
 
 
 @pytest.fixture
