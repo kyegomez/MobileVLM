@@ -1,3 +1,3 @@
-from mobilevlm.model import LDP
+from mobilevlm.main import LDP
 
 __all__ = ["LDP"]

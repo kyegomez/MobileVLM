@@ -15,7 +15,7 @@ import torch
 from mobilevlm import LDP
 
 # Create an instance of the LDP model
-ldp = LDP(in_channels=128, out_channels=128, depth=3)
+ldp = LDP(in_channels=128, out_channels=128)
 
 # Create an example input tensor
 input_tensor = torch.randn(1, 128, 64, 64)
