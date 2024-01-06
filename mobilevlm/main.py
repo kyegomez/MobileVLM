@@ -76,7 +76,7 @@ class LDP(nn.Module):
             torch.Tensor: Output tensor of shape (B, C, H, W).
         """
         # Save the input for pixel-wise addition later
-        B, C, H, W = x.shape
+        # B, C, H, W = x.shape
         identity = x
 
         # First pointwise and GELU activation
