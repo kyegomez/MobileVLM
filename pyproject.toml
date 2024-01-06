@@ -23,7 +23,6 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.6"
-swarms = "*"
 zetascale = "*"
 torch = "*"
 

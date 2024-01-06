@@ -12,7 +12,6 @@ from mobilevlm.main import LDP
 
 
 class MobileLLama(torch.nn.Module):
-
     def __init__(
         self,
         image_size=256,
@@ -41,23 +40,20 @@ class MobileLLama(torch.nn.Module):
             image_size=image_size,
             patch_size=patch_size,
             attn_layers=Encoder(
-                dim=encoder_dim, depth=encoder_depth, heads=encoder_heads
+                dim=encoder_dim,
+                depth=encoder_depth,
+                heads=encoder_heads,
             ),
         )
-        
+
         # Mobilevlm
         self.ldp = LDP(
             in_channels=image_size,
             out_channels=image_size,
         )
-        
+
         # 1X1 conv layer to adjust number of channels
-        self.conv1 = nn.Conv2d(
-            encoder_dim,
-            image_size,
-            kernel_size=1
-        )
-        
+        self.conv1 = nn.Conv2d(encoder_dim, image_size, kernel_size=1)
 
         # palm model architecture
         self.decoder = Transformer(
@@ -94,6 +90,7 @@ class MobileLLama(torch.nn.Module):
             print(f"Failed in forward method: {error}")
             raise
 
+
 # Usage with random inputs
 img = torch.randn(1, 3, 256, 256)
 text = torch.randint(0, 20000, (1, 1024))
@@ -102,4 +99,3 @@ text = torch.randint(0, 20000, (1, 1024))
 model = MobileLLama()
 output = model(img, text)
 print(output)
-

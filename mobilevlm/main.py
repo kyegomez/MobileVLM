@@ -31,7 +31,6 @@ class LDP(nn.Module):
         self.pointwise1 = nn.Conv2d(
             in_channels, out_channels, kernel_size=1
         )
-        self.gelu1 = nn.GELU()
 
         # First depthwise convolution with stride=1
         self.depthwise1 = nn.Conv2d(
@@ -63,7 +62,10 @@ class LDP(nn.Module):
             out_channels, out_channels, kernel_size=1
         )
 
+        # Layer norm
         self.norm = nn.LayerNorm(out_channels)
+        # GELU activation
+        self.gelu1 = nn.GELU()
 
     def forward(self, x: Tensor) -> Tensor:
         """

@@ -1,6 +1,6 @@
 import pytest
 import torch
-from mobilevlm import LDP 
+from mobilevlm import LDP
 
 
 @pytest.fixture
